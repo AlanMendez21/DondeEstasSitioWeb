@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(imagenes/Fondo.png);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .audio-player {
+      width: 100%;
+      max-width: 5700px;
+      margin: 0;
+      height: 12vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="audio-player">
+      <audio controls>
+        <source src="CancionPreview/DondeEstasPreview.wav" loop>
+      </audio>
+    </div>
+    <div class="text-align center, margin">
+        Te dejo 27 segundos de preview para que te des una idea de lo que se estrenará.:)
+    </div>
+  </div>
+  <div class="container">
+    <a href="index.html" class="back-btn">VOLVER</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿A quién extrañas?</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url(imagenes/Fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+header {
+    padding: clamp(0.5rem, 2vw, 1rem);
+}
+
+.timezone-container {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(1rem, 3vw, 3rem);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.preview-btn {
+    width: min(90vw, 600px);
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0);
+    color: rgb(45, 114, 183);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.preview-btn:hover {
+    background-color: hwb(0 94% 6% / 0.286);
+}
+
+.search-container {
+    width: min(90vw, 600px);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.result-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding: clamp(0.5rem, 2vw, 1rem);
+    background-image: url(imagenes/Fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    padding: clamp(0.5rem, 2vw, 1rem);
+    color: white;
+    font-weight: bold;
+    text-align: right;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border: 2px solid rgba(255, 255, 255, 0.406);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.406);
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    outline: none;
+}
+
+input::placeholder {
+    color: #a7a7a7;
+}
+
+button, .back-btn {
+    width: min(90vw, 600px);
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0);
+    color: rgb(45, 114, 183);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+button:hover, .back-btn:hover {
+    background-color: hwb(0 94% 6% / 0.286);
+}
+
+.result {
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Media Queries para ajustes específicos */
+@media screen and (max-width: 768px) {
+    .timezone-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    input, button, .back-btn, .preview-btn {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    .result {
+        font-size: 1.8rem;
+    }
+}
+
+/* Para pantallas muy grandes */
+@media screen and (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="timezone-container">
+                <span>Escribe el nombre de la persona que extrañas...</span>
+                
+            </div>
+        </header>
+    <main>
+        <div class="search-container">
+            <form id="searchForm">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="TE EXTRAÑO"
+                    required
+                >
+                <button type="submit">ENTER</button>
+                <a href="preview.html" class="preview-btn">PREVIEW</a>
+            </div>
+            <script>
+                document.getElementById('previewButton').addEventListener('click', () => {
+                  window.location.href = 'preview.html';
+                });
+              </script>
+
+            </form>
+            <div id="result" class="result"></div>
+            <button id="downloadBtn" class="download-btn" style="display: none;">DESCARGAR</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <span>Alan GBM</span>
+            <span>¿Dónde Estás? coming soon...</span>
+        </div>
+    </footer>
+
+    
+    
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
